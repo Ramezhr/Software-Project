@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  all-Container:
+    build:
+      context: ./all-service
+      dockerfile: Dockerfile
+    image: all
+    restart: always 
+    ports:
+      - "8050:8050"  
+
+  feedback-Container:
+    build:
+      context: ./feedback-service
+      dockerfile: Dockerfile
+    image: feedback
+    restart: always 
+    ports:
+      - "8060:8060" 
+
+  server-Container:
+    build: 
+      context: ./e-commerce
+      dockerfile: Dockerfile
+    image: server
+    restart: always
+    ports:
+      - "8761:8761"
